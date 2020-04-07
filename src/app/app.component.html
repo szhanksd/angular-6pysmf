@@ -10,7 +10,9 @@
     >
   </header>
   <!-- This section should be hidden by default and shown when there are todos -->
-  <ng-template [ngif]="todos.length">
+  <div *ngIf="todos.length; then thenBlock else elseBlock"></div>
+  <!-- <ng-template [ngif]="todos.length"> -->
+    <ng-template #thenBlock>
       <section class="main" >
         <input id="toggle-all" class="toggle-all" type="checkbox">
         <label for="toggle-all">Mark all as complete</label>
@@ -47,6 +49,7 @@
         <button class="clear-completed">Clear completed</button>
       </footer>
   </ng-template>
+  <ng-template #elseBlock>in ng else block</ng-template>
 
 
 </section>
